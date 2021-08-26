@@ -12,22 +12,14 @@ layout: default
     </div>
     <div class="content is-medium">
       <p>{{ page.description }}</p>
-    </div>
-    <hr>
-  </div>
-</section>
-
-
-{% assign content = content | strip_newlines %}
-{% if content != "" %}
-<section class="section is-small">
-  <div class="container">
-    <div class="content is-medium">
-      <p>{{ content }}</p>
+      <hr>
+      {% assign content = content | strip_newlines %}
+      {% if content != "" %}
+        {{ content }}
+      {% endif %}
     </div>
   </div>
 </section>
-{% endif %}
 
 {% if page.steps or page.images %}
 <section class="section is-small">
@@ -43,8 +35,8 @@ layout: default
             <li>
               {{ step.step }}
               {% if step.image %}
-              <a href="{{ site.url}}/images/examples/{{ step.image }}"><img src="{{ site.url}}/images/examples/{{ step.image }}"
-                  alt="{{step.step}}"></a>
+              <a href="{{ site.url}}/images/examples/{{ step.image }}"><img
+                  src="{{ site.url}}/images/examples/{{ step.image }}" alt="{{step.step}}"></a>
               {% endif %}
             </li>
             {% endfor %}
@@ -58,9 +50,9 @@ layout: default
         <h2 class="title is-2">Prototype</h2>
         <p class="subtitle is-4">A photo of the actual setup.</p>
         <div class="content is-medium">
-          <a href="{{ site.url}}/images/examples/{{ page.images.prototype }}"><img
-              src="{{ site.url}}/images/examples/{{ page.images.prototype }}"
-              alt="{{ page.name }} setup"></a>
+          <a href="{{ site.url}}/images/examples/{{ page.images.prototype }}">
+            <img src="{{ site.url}}/images/examples/{{ page.images.prototype }}" alt="{{ page.name }} setup">
+          </a>
         </div>
       </div>
       {% endif %}
@@ -70,9 +62,9 @@ layout: default
         <h2 class="title is-2">Serial console</h2>
         <p class="subtitle is-4">Serial output from the firmware.</p>
         <div class="content is-medium">
-          <a href="{{ site.url}}/images/examples/{{ page.images.console }}"><img
-              src="{{ site.url}}/images/examples/{{ page.images.console }}"
-              alt="{{ page.name }} setup"></a>
+          <a href="{{ site.url}}/images/examples/{{ page.images.console }}">
+            <img src="{{ site.url}}/images/examples/{{ page.images.console }}" alt="{{ page.name }} setup">
+          </a>
         </div>
       </div>
       {% endif %}
