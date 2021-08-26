@@ -8,24 +8,35 @@ layout: default
       {% for feat in page.features %}
       <span class="tag is-warning is-light">{{ feat }}</span>
       {% endfor %}
-
       <span class="tag">{{ page.difficulty }}</span>
     </div>
-
     <div class="content is-medium">
       <p>{{ page.description }}</p>
     </div>
-
     <hr>
   </div>
 </section>
 
+
+{% assign content = content | strip_newlines %}
+{% if content != "" %}
+<section class="section is-small">
+  <div class="container">
+    <div class="content is-medium">
+      <p>{{ content }}</p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.steps or page.images %}
 <section class="section is-small">
   <div class="container">
     <div class="columns is-multiline is-desktop">
+
+      {% if page.steps %}
       <div class="column is-half">
         <h2 class="title is-2">Steps</h2>
-
         <div class="content is-medium">
           <ol type=1>
             {% for step in page.steps %}
@@ -40,6 +51,7 @@ layout: default
           </ol>
         </div>
       </div>
+      {% endif %}
 
       {% if page.images.prototype %}
       <div class="column is-half">
@@ -78,6 +90,7 @@ layout: default
     </div>
   </div>
 </section>
+{% endif %}
 
 {% if page.has_code != false %}
 <section class="section is-small">
@@ -96,6 +109,7 @@ layout: default
 </section>
 {% endif %}
 
+{% if page.references %}
 <section class="section is-small">
   <div class="container">
     <h2 class="title is-2">References</h2>
@@ -111,3 +125,4 @@ layout: default
     </div>
   </div>
 </section>
+{% endif %}
