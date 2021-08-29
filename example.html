@@ -10,9 +10,78 @@ layout: default
       {% endfor %}
       <span class="tag">{{ page.difficulty }}</span>
     </div>
+
     <div class="content is-medium">
       <p>{{ page.description }}</p>
       <hr>
+
+      {% if page.dependancies or page.prerequisites or page.components %}
+      <h2 class="title is-2">Before starting</h2>
+      {% endif %}
+
+      <div class="columns is-desktop">
+        {% if page.dependancies %}
+        <div class="column">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Dependancies</p>
+            </header>
+
+            <div class="card-content">
+              <div class="content">Ensure the following requirements are available:</div>
+              <div class="content">
+                <ul>
+                  {% for dep in page.dependancies %}
+                  <li><a href="{{ dep.url }}">{{ dep.name }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.prerequisites %}
+        <div class="column">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Pre-requisites</p>
+            </header>
+
+            <div class="card-content">
+              <div class="content">Try these simpler examples:</div>
+              <div class="content">
+                <ol>
+                  {% for pre in page.prerequisites %}
+                  <li><a href="{{ pre.url }}">{{ pre.name }}</a></li>
+                  {% endfor %}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.components %}
+        <div class="column">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Buy the components</p>
+            </header>
+
+            <div class="card-content">
+              <div class="content">
+                <ol>
+                  {% for comp in page.components %}
+                  <li><a href="{{ comp.url }}">{{ comp.name }}</a></li>
+                  {% endfor %}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
       {% assign content = content | strip_newlines %}
       {% if content != "" %}
         {{ content }}
@@ -114,6 +183,17 @@ layout: default
         </li>
         {% endfor %}
       </ol>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.video %}
+<section class="section is-small">
+  <div class="container">
+    <h2 class="title is-2">Watch</h2>
+    <div class="video-container">
+      <iframe class="v" src="https://www.youtube-nocookie.com/embed/{{ page.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
