@@ -19,23 +19,24 @@ layout: default
         <li><strong>Unique parts:</strong> <span>{{ site.data.bom.bom-uniq }}</span></li>
         <li><strong>Total vendors:</strong> <span>{{ site.data.bom.vendors }}</span></li>
         <li><strong>Vendor names:</strong> <span>
-          {% for name in site.data.bom.vendor-names %}
+            {% for name in site.data.bom.vendor-names %}
             {% if forloop.last == true %}
-              {{ name }}
+            {{ name }}
             {% else %}
-              {{ name }},
+            {{ name }},
             {% endif %}
-          {% endfor %}
-        </span></li>
+            {% endfor %}
+          </span></li>
       </ul>
     </div>
   </div>
 </section>
 
 <section class="section is-small">
-  <div class="container" id="bom" >
+  <div class="container" id="bom">
     <h2 class="title is-1">Bill of Materials</h2>
-    <a href="{{site.url}}/_data/bill_of_materials.csv" class="button is-large is-fullwidth is-info">Download BOM in CSV</a>
+    <a href="{{site.url}}/_data/bill_of_materials.csv" class="button is-large is-fullwidth is-info">Download BOM in
+      CSV</a>
     <br>
 
     {% raw %}
@@ -156,8 +157,11 @@ layout: default
     <div class="content is-medium">
       <p class="title is-3">Notes</p>
       <ul>
-        <li><strong>Designator:</strong> <a href="https://en.wikipedia.org/wiki/Reference_designator">Reference designator</a> according to standards <code>ASME Y14.44-2008</code> and <code>IEEE 315-1975</code> are used.</li>
-        <li><strong>Cost:</strong> Unit price does not include shipping cost, interest charges, taxes and minimum order quantity cost.</li>
+        <li><strong>Designator:</strong> <a href="https://en.wikipedia.org/wiki/Reference_designator">Reference
+            designator</a> according to standards <code>ASME Y14.44-2008</code> and <code>IEEE 315-1975</code> are used.
+        </li>
+        <li><strong>Cost:</strong> Unit price does not include shipping cost, interest charges, taxes and minimum order
+          quantity cost.</li>
       </ul>
     </div>
   </div>
@@ -176,5 +180,12 @@ layout: default
 <!-- FIXME: If div is used instead of span on the desktop view, the right side view of the PCB in canvas is not displayed. -->
 <span class="is-hidden-touch">
   {% include_relative bom/ibom.html %}
+  <!-- Reset fonts after iBom -->
+  <style>
+    html,
+    body {
+      font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  </style>
 </span>
 {% endif %}
