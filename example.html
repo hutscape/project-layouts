@@ -10,6 +10,9 @@ layout: default
           {% for feat in page.features %}
           <span class="tag is-warning is-light">{{ feat }}</span>
           {% endfor %}
+          {% for v in page.versions %}
+          <span class="tag is-link is-light">{{ v.name }} version {{v.version}}</span>
+          {% endfor %}
           <span class="tag">{{ page.difficulty }}</span>
         </div>
 
