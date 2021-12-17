@@ -23,69 +23,56 @@ layout: default
           {% if page.dependancies or page.prerequisites or page.components %}
           <h2 class="title is-2">Before starting</h2>
           {% endif %}
+        </div>
 
-          <div class="columns is-desktop">
-            {% if page.dependancies %}
-            <div class="column">
-              <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">Dependancies</p>
-                </header>
-
-                <div class="card-content">
-                  <div class="content">Ensure the following requirements are available:</div>
-                  <div class="content">
-                    <ul>
-                      {% for dep in page.dependancies %}
-                      <li><a href="{{ dep.url }}">{{ dep.name }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                </div>
+        <div class="content">
+          <div class="tile is-ancestor">
+            <div class="tile is-12 is-vertical is-parent">
+              {% if page.dependancies %}
+              <div class="tile is-child box">
+                <p class="subtitle">Dependancies</p>
+                <p>
+                  {% for dep in page.dependancies %}
+                  {% if forloop.last == true %}
+                  <a href="{{ dep.url }}">{{ dep.name }}</a>
+                  {% else %}
+                  <a href="{{ dep.url }}">{{ dep.name }}</a>,
+                  {% endif %}
+                  {% endfor %}
+                </p>
               </div>
-            </div>
-            {% endif %}
+              {% endif %}
 
-            {% if page.prerequisites %}
-            <div class="column">
-              <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">Pre-requisites</p>
-                </header>
-
-                <div class="card-content">
-                  <div class="content">Try these similar or simpler examples:</div>
-                  <div class="content">
-                    <ol>
-                      {% for pre in page.prerequisites %}
-                      <li><a href="{{ pre.url }}">{{ pre.name }}</a></li>
-                      {% endfor %}
-                    </ol>
-                  </div>
-                </div>
+              {% if page.prerequisites %}
+              <div class="tile is-child box">
+                <p class="subtitle">Pre-requisites</p>
+                <p>
+                  {% for prereq in page.prerequisites %}
+                  {% if forloop.last == true %}
+                  <a href="{{ prereq.url }}">{{ prereq.name }}</a>
+                  {% else %}
+                  <a href="{{ prereq.url }}">{{ prereq.name }}</a>,
+                  {% endif %}
+                  {% endfor %}
+                </p>
               </div>
-            </div>
-            {% endif %}
+              {% endif %}
 
-            {% if page.components %}
-            <div class="column">
-              <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">Buy the components</p>
-                </header>
-
-                <div class="card-content">
-                  <div class="content">
-                    <ol>
-                      {% for comp in page.components %}
-                      <li><a href="{{ comp.url }}">{{ comp.name }}</a></li>
-                      {% endfor %}
-                    </ol>
-                  </div>
-                </div>
+              {% if page.components %}
+              <div class="tile is-child box">
+                <p class="subtitle">Buy the components</p>
+                <p>
+                  {% for comp in page.components %}
+                  {% if forloop.last == true %}
+                  <a href="{{ comp.url }}">{{ comp.name }}</a>
+                  {% else %}
+                  <a href="{{ comp.url }}">{{ comp.name }}</a>,
+                  {% endif %}
+                  {% endfor %}
+                </p>
               </div>
+              {% endif %}
             </div>
-            {% endif %}
           </div>
         </div>
       </div>
