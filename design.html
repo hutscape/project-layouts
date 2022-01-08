@@ -114,7 +114,7 @@ layout: default
 </section>
 {% endif %}
 
-{% if page.power_source %}
+{% if page.power.source %}
 <section class="section is-small">
   <div class="container">
     <h2 class="title is-1">Power overview</h2>
@@ -128,7 +128,7 @@ layout: default
           </header>
           <div class="card-content">
             <div class="content">
-              {{ page.power_source }}
+              {{ page.power.source }}
             </div>
           </div>
         </div>
@@ -140,16 +140,23 @@ layout: default
               Battery life
             </p>
           </header>
-          {% if page.battery_life %}
+          {% if page.power.battery_life %}
           <div class="card-content">
             <div class="content">
-              {{ page.battery_life }}
+              {{ page.power.battery_life }}
             </div>
           </div>
-          <footer class="card-footer">
-            <a href="#main-components" class="card-footer-item">Main components</a>
-            <a href="#calculation" class="card-footer-item">Calculation</a>
-          </footer>
+            {% if page.power.components and page.power.calculation %}
+            <footer class="card-footer">
+              {% if page.power.components %}
+              <a href="#main-components" class="card-footer-item">Main components</a>
+              {% endif %}
+
+              {% if page.power.calculation %}
+              <a href="#calculation" class="card-footer-item">Calculation</a>
+              {% endif %}
+            </footer>
+            {% endif %}
           {% else %}
           <div class="card-content">
             <div class="content">
@@ -166,13 +173,13 @@ layout: default
               Charging duration
             </p>
           </header>
-          {% if page.charging_duration %}
+          {% if page.power.charging_duration %}
           <div class="card-content">
             <div class="content">
-              {{ page.charging_duration }}
+              {{ page.power.charging_duration }}
             </div>
             <div class="content">
-              {{ page.charging_instruction }}
+              {{ page.power.charging_instruction }}
             </div>
           </div>
           {% endif %}
@@ -183,7 +190,7 @@ layout: default
 </section>
 {% endif %}
 
-{% if page.power_tree %}
+{% if page.power.tree %}
 <section class="section is-small">
   <div class="container">
     <h2 class="title is-1">Power tree schematic</h2>
