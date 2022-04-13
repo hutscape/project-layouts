@@ -116,6 +116,7 @@ layout: default
 </section>
 {% endfor %}
 
+{% if page.design_start %}
 <section class="section is-small">
   <div class="container">
     <h2 class="title is-1">Schedule</h2>
@@ -124,5 +125,21 @@ layout: default
     <svg id="gantt"></svg>
   </div>
 </section>
+{% endif %}
+
+{% if page.progress %}
+<section class="section is-small">
+  <div class="container">
+    <h2 class="title is-1">Monthly progress</h2>
+    <div class="content is-large">
+      <ul>
+        {% for item in page.progress %}
+        <li><strong>{{item.month}}</strong>: {{item.details}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {{ content }}
