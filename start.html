@@ -37,21 +37,12 @@ layout: default
         {% endif %}
 
         {% if page.downloads.gerber != false %}
-        {% if page.downloads.gerber_url %}
-        <a class="button is-info is-outlined" href="{{page.downloads.gerber_url}}">
+        <a class="button is-info is-outlined" href="{{site.github.repository_url}}/releases">
           <span class="icon">
             <i class="fas fa-file-image"></i>
           </span>
           <span>Gerber files</span>
         </a>
-        {% else %}
-        <a class="button is-info is-outlined" href="{{site.github.repository_url}}/tree/master/hardware/gerbers">
-          <span class="icon">
-            <i class="fas fa-file-contract"></i>
-          </span>
-          <span>Gerber files</span>
-        </a>
-        {% endif %}
         {% endif %}
 
         {% for sw in page.software %}
