@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<section class="section is-small">
+  <div class="container">
+    <div class="columns is-desktop">
+      <div class="column">
+        <h2 class="title is-1">CAD Files</h2>
+        <a href="{{site.github.repository_url}}/tree/master/case"
+          class="button is-large is-fullwidth is-info">Download FreeCAD project file</a>
+        <br>
+        <a href="{{site.github.repository_url}}/tree/master/case/exports" class="button is-large is-fullwidth is-info">Download exported STL
+          files</a>
+      </div>
+    </div>
+
+    <div class="columns is-desktop">
+      <div class="column"><a href="{{site.url}}/images/case/case.png"><img
+            src="{{site.url}}/images/case/case.png" alt="Electronics enclosure"></a></div>
+      <div class="column"><a href="{{site.url}}/images/case/case-electronics.png"><img
+            src="{{site.url}}/images/case/case-electronics.png" alt="Electronics enclosure with PCB and components"></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-small">
+  <div class="container">
+    <h2 class="title is-1">Photos</h2>
+
+    <div class="columns is-multiline is-desktop">
+      {% for photo in page.photos %}
+      <div class="column is-half">
+        <a href="{{ site.url}}/images/case/{{ photo.name }}">
+          <img src="{{ site.url}}/images/case/{{ photo.name }}" alt="{{ photo.caption }}">
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ content }}
