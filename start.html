@@ -10,7 +10,7 @@ layout: default
     <div class="content is-medium">
       <div class="buttons">
         {% if page.downloads.schematic != false %}
-        <a class="button is-info is-outlined" href="{{ site.url }}/hardware/docs/schematic.pdf">
+        <a class="button is-info is-outlined" href="{{ site.url }}/pcb/docs/schematic.pdf">
           <span class="icon">
             <i class="far fa-file-pdf"></i>
           </span>
@@ -19,7 +19,7 @@ layout: default
         {% endif %}
 
         {% if page.downloads.layout != false %}
-        <a class="button is-info is-outlined" href="{{ site.url }}/hardware/docs/layout.pdf">
+        <a class="button is-info is-outlined" href="{{ site.url }}/pcb/docs/layout.pdf">
           <span class="icon">
             <i class="far fa-file-pdf"></i>
           </span>
@@ -28,7 +28,7 @@ layout: default
         {% endif %}
 
         {% if page.downloads.kicad != false %}
-        <a class="button is-info is-outlined" href="{{site.github.repository_url}}/tree/master/hardware">
+        <a class="button is-info is-outlined" href="{{site.github.repository_url}}/tree/master/pcb">
           <span class="icon">
             <i class="fas fa-file-contract"></i>
           </span>
@@ -60,6 +60,15 @@ layout: default
             <i class="fas fa-table"></i>
           </span>
           <span>Bill of Materials</span>
+        </a>
+        {% endif %}
+
+        {% if page.downloads.case != false %}
+        <a class="button is-dark is-outlined" href="{{site.github.repository_url}}/tree/master/case/exports">
+          <span class="icon">
+            <i class="fas fa-box-open"></i>
+          </span>
+          <span>Case STL</span>
         </a>
         {% endif %}
       </div>
