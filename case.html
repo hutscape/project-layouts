@@ -2,6 +2,19 @@
 layout: default
 ---
 
+{% if page.3dprint != false %}
+<section class="section is-small">
+  <div class="container">
+    <div class="columns is-desktop">
+      <div class="column"><img src="{{site.url}}/images/case/case-3dprint-1.jpg" alt="3D printed case 1"></div>
+      <div class="column"><img src="{{site.url}}/images/case/case-3dprint-2.jpg" alt="3D printed case 2"></div>
+      <div class="column"><img src="{{site.url}}/images/case/case-3dprint-3.jpg" alt="3D printed case 3"></div>
+      <div class="column"><img src="{{site.url}}/images/case/case-3dprint-4.jpg" alt="3D printed case 4"></div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="section is-small">
   <div class="container">
     <div class="columns is-desktop">
@@ -10,16 +23,18 @@ layout: default
         <a href="{{site.github.repository_url}}/tree/master/case/case.FCStd"
           class="button is-large is-fullwidth is-info">Download FreeCAD project file</a>
         <br>
-        <a href="{{site.github.repository_url}}/tree/master/case/exports" class="button is-large is-fullwidth is-info">Download exported STL
+        <a href="{{site.github.repository_url}}/tree/master/case/exports"
+          class="button is-large is-fullwidth is-info">Download exported STL
           files</a>
       </div>
     </div>
 
     <div class="columns is-desktop">
-      <div class="column"><a href="{{site.url}}/images/case/case.png"><img
-            src="{{site.url}}/images/case/case.png" alt="Electronics enclosure"></a></div>
+      <div class="column"><a href="{{site.url}}/images/case/case.png"><img src="{{site.url}}/images/case/case.png"
+            alt="Electronics enclosure"></a></div>
       <div class="column"><a href="{{site.url}}/images/case/case-electronics.png"><img
-            src="{{site.url}}/images/case/case-electronics.png" alt="Electronics enclosure with PCB and components"></a></div>
+            src="{{site.url}}/images/case/case-electronics.png" alt="Electronics enclosure with PCB and components"></a>
+      </div>
     </div>
   </div>
 </section>
