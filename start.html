@@ -63,6 +63,15 @@ layout: default
         </a>
         {% endif %}
 
+        {% if page.downloads.freecad != false %}
+        <a class="button is-dark is-outlined" href="{{site.github.repository_url}}/tree/master/case/case.FCStd">
+          <span class="icon">
+            <i class="fas fa-box-open"></i>
+          </span>
+          <span>FreeCAD file</span>
+        </a>
+        {% endif %}
+
         {% if page.downloads.case != false %}
         <a class="button is-dark is-outlined" href="{{site.github.repository_url}}/tree/master/case/exports">
           <span class="icon">
